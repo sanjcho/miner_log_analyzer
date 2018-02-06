@@ -19,3 +19,4 @@
 .byebug_history
 secrets.yml
 database.yml
+.DS_Store

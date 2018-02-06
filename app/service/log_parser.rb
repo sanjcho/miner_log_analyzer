@@ -8,6 +8,7 @@ class LogParser
     parsed_log = ParsedLog.find_or_create_by(data_type: :hashrates, name: "test")
     parsed_data = {}
     File.readlines(@file).each do |line|
+      line = line.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''})
       if (line =~ /ETH:\sGPU0\s[0-9,\.]{6}\sMh\/s/)
         time = Time.parse line[0..11]
         parsed_data = line.scan(/GPU[0-9]+/).inject({}) {|memo, val| memo[val] = {}; memo} if parsed_data.empty?
