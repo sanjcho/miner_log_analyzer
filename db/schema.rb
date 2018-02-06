@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180130025617) do
   create_table "parsed_logs", force: :cascade do |t|
     t.string "name"
     t.integer "data_type"
-    t.jsonb "parsed_data"
+    t.jsonb "parsed_data", default: {}
   end
 
 end
