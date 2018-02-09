@@ -26,7 +26,7 @@
         dataPoints.push({x: (new Date(date)), y: parseFloat(parsedData[val][date])})
       })
       data.push({
-        type: "spline",
+        type: "line",
     		name: val,
     		showInLegend: true,
     		xValueFormatString: "MMM YYYY",
@@ -34,11 +34,11 @@
     		dataPoints: dataPoints
       })
     })
-    console.log(data);
 
     var options = {
     	animationEnabled: true,
       zoomEnabled: true,
+      theme: "light1",
     	title:{
     		text: "GPUs hashrates"
     	},
